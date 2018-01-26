@@ -14,7 +14,7 @@ export PATH='/usr/local/bin:/usr/bin:$PATH'
 
 SFOX_FEE="0.007"
 
-DELTA=$(curl -s "https://api.sfox.com/v1/markets/orderbook/btcusd" | jq -r '[.asks[0] | .[0]], .bids[0] | .[0]')
+DELTA=$(curl -s "https://api.sfox.com/v1/markets/orderbook/bchbtc" | jq -r '[.asks[0] | .[0]], .bids[0] | .[0]')
 
 # Let's get some useful values from here
 USD_ASK=`echo $DELTA | awk -F" " '{print $1}'`
@@ -26,10 +26,10 @@ SPREAD_ARB=$(echo "${USD_ASK} - ${USD_BID} + ${SFOX_FEE_USD}" | bc)
 # I need to make the Arb pop, so let's put some colors
 case "$SPREAD_ARB" in
 -*)
-    echo "BTC-USD A $SPREAD_ARB | color=red"
+    echo "BTC-BCH A $SPREAD_ARB | color=red"
     ;;
 *)
-    echo "BTC-USD S $SPREAD_ARB"
+    echo "BTC-BCH S $SPREAD_ARB"
     ;;
 esac
 
