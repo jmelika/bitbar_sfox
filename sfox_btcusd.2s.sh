@@ -26,10 +26,10 @@ SPREAD_ARB=$(echo "${USD_ASK} - ${USD_BID} + ${SFOX_FEE_USD}" | bc)
 # I need to make the Arb pop, so let's put some colors
 case "$SPREAD_ARB" in
 -*)
-    echo "BTC-USD A $SPREAD_ARB | color=red"
+    echo "B$ -$SPREAD_ARB | color=red"
     ;;
 *)
-    echo "BTC-USD S $SPREAD_ARB"
+    echo "B$ $SPREAD_ARB"
     ;;
 esac
 
