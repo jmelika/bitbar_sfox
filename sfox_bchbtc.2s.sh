@@ -27,6 +27,7 @@ SPREAD_ARB=$(echo "${USD_ASK} - ${USD_BID} + ${SFOX_FEE_USD}" | bc)
 case "$SPREAD_ARB" in
 -*)
     echo "BB -$SPREAD_ARB | color=red"
+    tweet.sh post ARB between BTC and BCH at -$SPREAD_ARB
     ;;
 *)
     echo "BB $SPREAD_ARB"
